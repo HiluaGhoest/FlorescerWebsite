@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Florescer - Clínica de Psicologia</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+</head>
+<body>
+    <div class="overlay"></div>
+      <header class="header">
+        <img src="images/florescer-logo.png" alt="Florescer Logo" class="logo">
+        <div class="nav-links" id="navLinks">
+            <!-- When logged in, these links will appear -->
+            <a href="my-appointments.html" class="nav-link logged-in-only" style="display: none">Meus Agendamentos</a>
+            <button id="logoutBtn" class="btn login logged-in-only" style="display: none">Sair</button>
+            
+            <!-- When logged out, these links will appear -->
+            <a href="login.html" class="btn login logged-out-only">Login</a>
+            <a href="register.html" class="btn register logged-out-only">Cadastre-se</a>
+        </div>
+    </header>
+
+    <main class="container">
+        <div class="title-box">
+            <h2>Florecer - Agendamentos</h2>
+        </div>
+
+        <div class="card">
+            <div class="therapy-selection">
+                <h3>Selecione sua terapia:</h3>
+                <div class="therapy-grid">
+                    <div class="therapy-card" data-therapy="terapia-grupo">
+                        <h4>Terapia em Grupo</h4>
+                    </div>
+                    <div class="therapy-card" data-therapy="terapia-casal">
+                        <h4>Terapia de Casal</h4>
+                    </div>
+                    <div class="therapy-card" data-therapy="terapia-individual">
+                        <h4>Terapia Individual</h4>
+                    </div>
+                    <div class="therapy-card" data-therapy="orientacao-pais">
+                        <h4>Orientação de Pais</h4>
+                    </div>
+                    <div class="therapy-card" data-therapy="terapia-psicomotora">
+                        <h4>Terapia Psicomotora</h4>
+                    </div>
+                    <div class="therapy-card" data-therapy="terapia-ludica">
+                        <h4>Terapia Lúdica</h4>
+                    </div>
+                    <div class="therapy-card" data-therapy="psicanalise">
+                        <h4>Psicanálise</h4>
+                    </div>
+                    <div class="therapy-card" data-therapy="arteterapia">
+                        <h4>Arteterapia</h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Florescer Clínica de Psicologia. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>

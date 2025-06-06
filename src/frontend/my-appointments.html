@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meus Agendamentos - Florescer</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="overlay"></div>
+    
+    <header class="header">
+        <a href="index.html">
+            <img src="images/florescer-logo.png" alt="Florescer Logo" class="logo">
+        </a>
+        <div class="nav-links">
+            <a href="index.html" class="nav-link">Inicio</a>
+            <a href="my-appointments.html" class="nav-link active">Meus Agendamentos</a>
+            <button id="logoutBtn" class="btn login">Sair</button>
+        </div>
+    </header>
+
+    <main class="container">
+        <div class="title-box">
+            <h2>Meus Agendamentos</h2>
+        </div>
+
+        <div class="card">
+            <div class="tab-container">
+                <div class="tab-buttons">
+                    <button class="tab-button active" data-tab="all">Todos</button>
+                    <button class="tab-button" data-tab="scheduled">Agendados</button>
+                    <button class="tab-button" data-tab="completed">Concluídos</button>
+                    <button class="tab-button" data-tab="cancelled">Cancelados</button>
+                </div>
+                
+                <div id="appointmentsContainer" class="appointments-container">
+                    <div class="appointments-filter">
+                        <div class="filter-group">
+                            <label for="filterDate">
+                                <i class="fas fa-calendar-alt"></i> Data:
+                            </label>
+                            <input type="date" id="filterDate" class="form-control">
+                        </div>
+                        <button id="clearFiltersBtn" class="btn">
+                            <i class="fas fa-times"></i> Limpar Filtros
+                        </button>
+                        <button id="newAppointmentBtn" class="btn">
+                            <i class="fas fa-plus"></i> Novo Agendamento
+                        </button>
+                    </div>
+                    
+                    <div id="appointmentsList" class="appointments-grid">
+                        <!-- Appointments will be dynamically loaded here -->
+                        <div class="loading-spinner"></div>
+                        <p class="loading-message">Carregando agendamentos...</p>
+                    </div>
+                    
+                    <div id="noAppointmentsMessage" class="no-appointments-message" style="display: none;">
+                        <i class="fas fa-calendar-times" style="font-size: 3rem; color: var(--primary-color); margin-bottom: 1rem;"></i>
+                        <p>Você ainda não tem agendamentos.</p>
+                        <a href="appointment.html" class="btn">Agendar Agora</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Florescer Clínica de Psicologia. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <!-- Appointment Details Modal -->
+    <div id="appointmentDetailsModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Detalhes do Agendamento</h3>
+                <span class="close-modal">&times;</span>
+            </div>
+            <div class="modal-body">
+                <div id="appointmentDetailsContent"></div>
+            </div>
+            <div class="modal-actions">
+                <button id="cancelAppointmentBtn" class="btn cancel-btn">
+                    <i class="fas fa-times-circle"></i> Cancelar Agendamento
+                </button>
+                <button id="closeModalBtn" class="btn">
+                    <i class="fas fa-check-circle"></i> Fechar
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Confirmation Modal -->
+    <div id="confirmationModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Confirmação</h3>
+                <span class="close-confirmation-modal close-modal">&times;</span>
+            </div>
+            <div class="modal-body">
+                <p id="confirmationMessage">Tem certeza que deseja cancelar este agendamento?</p>
+            </div>
+            <div class="modal-actions">
+                <button id="confirmYesBtn" class="btn cancel-btn">Sim, cancelar</button>
+                <button id="confirmNoBtn" class="btn">Não, manter</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/my-appointments.js"></script>
+</body>
+</html>

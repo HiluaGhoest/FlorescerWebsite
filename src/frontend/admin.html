@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin - Florescer</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+</head>
+<body>
+    <div class="overlay"></div>
+      <header class="header">
+        <a href="index.html">
+            <img src="images/florescer-logo.png" alt="Florescer Logo" class="logo">
+        </a>
+        <div class="nav-links">
+            <a href="index.html" class="nav-link">Início</a>
+            <a href="admin.html" class="nav-link active">Admin</a>
+            <button id="logoutBtn" class="btn login">Sair</button>
+        </div>
+    </header>
+
+    <main class="container">
+        <div class="title-box">
+            <h2>Florecer - Admin Page</h2>
+        </div>
+
+        <div class="card">
+            <div class="admin-menu">
+                <div class="admin-btn" id="therapiesBtn">Terapias</div>
+                <div class="admin-btn" id="appointmentsBtn">Agendamentos</div>
+                <div class="admin-btn" id="staffBtn">Funcionários</div>
+            </div>
+            
+            <div id="adminContent" class="admin-content">
+                <!-- This area will be dynamically populated based on admin selection -->
+            </div>
+        </div>
+    </main>    <footer>
+        <div class="container">
+            <p>&copy; 2025 Florescer Clínica de Psicologia. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <script src="js/admin-edit-functions.js"></script>
+    <script src="js/admin.js"></script>
+</body>
+</html>

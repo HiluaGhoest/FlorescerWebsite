@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro - Florescer</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+    <script src="https://unpkg.com/imask"></script>
+</head>
+<body>
+    <div class="overlay"></div>
+    
+    <header class="header">
+        <a href="index.html">
+            <img src="images/florescer-logo.png" alt="Florescer Logo" class="logo">
+        </a>
+        <div class="nav-links">
+            <a href="login.html" class="nav-link">Login</a>
+        </div>
+    </header>
+
+    <main class="container">
+        <div class="title-box">
+            <h2>Cadastro Usuário</h2>
+        </div>
+
+        <div class="card">
+            <div class="form-container">
+                <form id="registerForm">
+                    <div class="form-group">
+                        <label for="username" class="form-label">Nome completo:</label>
+                        <input type="text" id="username" name="username" class="form-control" required
+                               placeholder="Digite seu nome completo">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="email" class="form-label">E-mail:</label>
+                        <input type="email" id="email" name="email" class="form-control" required
+                               placeholder="exemplo@email.com">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="phone" class="form-label">Telefone:</label>
+                        <input type="tel" id="phone" name="phone" class="form-control" required
+                               placeholder="(XX) XXXXX-XXXX">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="birthdate" class="form-label">Data de nascimento:</label>
+                        <input type="date" id="birthdate" name="birthdate" class="form-control" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="photo" class="form-label">Foto: <span class="optional">(Opcional)</span></label>
+                        <input type="file" id="photo" name="photo" class="form-control"
+                               accept="image/png, image/jpeg, image/jpg">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="password" class="form-label">Senha:</label>
+                        <input type="password" id="password" name="password" class="form-control" required
+                               placeholder="Mínimo 6 caracteres">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="confirmPassword" class="form-label">Confirmar senha:</label>
+                        <input type="password" id="confirmPassword" name="confirmPassword" class="form-control" required
+                               placeholder="Repita sua senha">
+                    </div>
+                    
+                    <div class="form-group">
+                        <button type="submit" class="btn">Cadastrar</button>
+                    </div>
+                    
+                    <div id="error-message" class="error-message"></div>
+                </form>
+                
+                <div class="login-link">
+                    <p>Já tem uma conta? <a href="login.html">Faça login</a></p>
+                </div>
+            </div>
+        </div>
+    </main>    <footer>
+        <div class="container">
+            <p>&copy; 2025 Florescer Clínica de Psicologia. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <script src="js/auth.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Phone input mask
+            const phoneInput = document.getElementById('phone');
+            if (phoneInput) {
+                IMask(phoneInput, {
+                    mask: '(00) 00000-0000'
+                });
+            }
+            
+            // Set minimum date for birthdate (18 years ago)
+            const birthdateInput = document.getElementById('birthdate');
+            if (birthdateInput) {
+                const today = new Date();
+                const minDate = new Date(today.getFullYear() - 18, today.getMonth(), today.getDate());
+                birthdateInput.max = today.toISOString().split('T')[0];
+                
+                // Set default value to 18 years ago
+                const defaultDate = new Date(today.getFullYear() - 18, today.getMonth(), today.getDate());
+                birthdateInput.value = defaultDate.toISOString().split('T')[0];
+            }
+        });
+    </script>
+</body>
+</html>

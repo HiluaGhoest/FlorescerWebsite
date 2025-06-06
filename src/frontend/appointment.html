@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agendamento - Florescer</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+</head>
+<body>
+    <div class="overlay"></div>
+      <header class="header">
+        <a href="index.html">
+            <img src="images/florescer-logo.png" alt="Florescer Logo" class="logo">
+        </a>
+        <div class="nav-links">
+            <a href="index.html" class="nav-link">Início</a>
+            <a href="my-appointments.html" class="nav-link">Meus Agendamentos</a>
+            <button id="logoutBtn" class="btn login">Sair</button>
+        </div>
+    </header>
+
+    <main class="container">
+        <div class="title-box">
+            <h2>Florecer - Agendamentos</h2>
+        </div>
+
+        <div class="card">
+            <h3 id="selectedTherapyTitle">Selecione uma data:</h3>
+            
+            <div class="datetime-container">                <div class="psychologist-selection">
+                    <h4>Selecione sua psicóloga:</h4>
+                    <div class="psychologist-grid">
+                        <div class="psychologist-card" data-psychologist="p1">
+                            <img src="images/psychologist1.jpg" alt="Psicóloga 1">
+                            <h4>Dra. Maria Silva</h4>
+                        </div>
+                        <div class="psychologist-card" data-psychologist="p2">
+                            <img src="images/psychologist2.jpg" alt="Psicólogo 2">
+                            <h4>Dr. João Santos</h4>
+                        </div>
+                        <div class="psychologist-card" data-psychologist="p3">
+                            <img src="images/psychologist3.jpg" alt="Psicóloga 3">
+                            <h4>Dra. Ana Oliveira</h4>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="date-time-selection">
+                    <div class="time-selector">
+                        <h4>Horário:</h4>
+                        <input type="time" id="timeInput" class="form-control" value="07:00">
+                    </div>
+                    
+                    <div class="date-selector">
+                        <h4>Data:</h4>
+                        <input type="date" id="dateInput" class="form-control">
+                    </div>
+                </div>
+            </div>
+            
+            <div id="therapyOptions" class="therapy-options">
+                <!-- This section will be dynamically populated based on the selected therapy type -->
+            </div>
+            
+            <div class="form-group" style="text-align: center; margin-top: 2rem;">
+                <button id="scheduleBtn" class="btn">Agendar</button>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Florescer Clínica de Psicologia. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>
