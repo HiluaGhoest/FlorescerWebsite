@@ -490,6 +490,11 @@ body {
   color: white;
 }
 
+.status-atrasado {
+  background-color: #ffb347; /* orange/yellow for warning */
+  color: #593d29;
+}
+
 .appointment-body {
   padding: 1.2rem;
 }

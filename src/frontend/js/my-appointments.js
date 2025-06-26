@@ -138,7 +138,23 @@ function loadAppointments() {
     
     // Filter appointments for this user
     appointments = appointments.filter(appointment => appointment.userId === user.id);
-    
+
+    // Mark appointments as atrasado if date is past and not completed/cancelled
+    const now = new Date();
+    appointments.forEach(appointment => {
+        const appointmentDate = new Date(appointment.date + 'T' + appointment.time);
+        if (
+            appointmentDate < now &&
+            appointment.status !== 'completed' &&
+            appointment.status !== 'cancelled' &&
+            appointment.status !== 'atrasado'
+        ) {
+            appointment.status = 'atrasado';
+        }
+    });
+    // Optionally, save updated appointments back to localStorage
+    localStorage.setItem('appointments', JSON.stringify(appointments));
+
     // Update UI based on appointments
     if (appointments.length === 0) {
         appointmentsList.innerHTML = '';
@@ -200,6 +216,10 @@ function loadAppointments() {
                 case 'cancelled':
                     statusClass = 'status-cancelled';
                     statusIcon = 'fa-times-circle';
+                    break;
+                case 'atrasado':
+                    statusClass = 'status-atrasado';
+                    statusIcon = 'fa-exclamation-triangle';
                     break;
                 default:
                     statusClass = '';
@@ -405,6 +425,10 @@ function viewAppointmentDetails(appointmentId) {
             statusClass = 'status-cancelled';
             statusIcon = 'fa-times-circle';
             break;
+        case 'atrasado':
+            statusClass = 'status-atrasado';
+            statusIcon = 'fa-exclamation-triangle';
+            break;
         default:
             statusClass = '';
             statusIcon = 'fa-calendar';
@@ -551,6 +575,8 @@ function translateStatus(status) {
             return 'Concluído';
         case 'cancelled':
             return 'Cancelado';
+        case 'atrasado':
+            return 'Atrasado';
         default:
             return status;
     }
